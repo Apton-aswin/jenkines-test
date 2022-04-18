@@ -3,6 +3,8 @@ platform: linux
 
 inputs:
 - name: jenkines-test
-
+params:
+  COVERALLS_TOKEN:
+  GIT_BRANCH: master
 run:
   path: booklit/ci/test
