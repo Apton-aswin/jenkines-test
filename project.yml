@@ -1,15 +1,15 @@
 ---
 resources:
-- name: code
+- name: jenkines-test
   type: git
   source:
-    uri: https://github.com/aswin-apton/jenkines-test.git
+    uri: https://github.com/aswin-apton/jenkines-test
     branch: master
 
 jobs:
-- name: unit
+- name: exec
   plan:
-  - get: code
+  - get: jenkines-test
     trigger: true
   - task: unit
-    file: hello.py
+    file: jenkines-test/ci/test1.yml
