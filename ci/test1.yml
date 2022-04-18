@@ -11,4 +11,4 @@ params:
   COVERALLS_TOKEN:
   GIT_BRANCH: master
 run:
-  path: booklit/ci/test
+  path: jenkines-test/ci/test
