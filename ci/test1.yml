@@ -9,12 +9,15 @@ image_resource:
 
 inputs:
 - name: jenkines-test
-caches:
-- path: gopath
+  type: git
+  source:
+    uri: https://github.com/aswin-apton/jenkines-test
+    branch: master
 
 params:
   COVERALLS_TOKEN:
   GIT_BRANCH: master
-
+plan:
+  - get: jenkines-test
 run:
   path: jenkines-test/ci/test.sh
