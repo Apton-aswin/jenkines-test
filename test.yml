@@ -1,12 +1,18 @@
-jobs:
-- name: hello-world
-  plan:
-  - task: say-hello
-    config:
-      platform: linux
-      image_resource:
-        type: registry-image
-        source: {repository: alpine}
-      run:
-        path: echo
-        args: ["Hello, world!"]
+---
+platform: linux
+
+image_resource:
+  type: registry-image
+  source:
+    repository: golang
+    tag: 1
+
+inputs:
+- name: jenkines-test
+
+params:
+  COVERALLS_TOKEN:
+  GIT_BRANCH: master
+
+run:
+  path: jenkines-test/ci/test
