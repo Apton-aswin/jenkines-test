@@ -9,6 +9,8 @@ image_resource:
 
 inputs:
 - name: jenkines-test
+caches:
+- path: gopath
 
 params:
   COVERALLS_TOKEN:
