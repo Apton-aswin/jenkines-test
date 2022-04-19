@@ -15,4 +15,4 @@ params:
   GIT_BRANCH: master
 
 run:
-  path: jenkines-test/ci/test
+  path: jenkines-test/ci/test.sh
