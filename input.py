@@ -1,2 +1,2 @@
 num = input('Enter a number: ')
-print num
+print(num)
