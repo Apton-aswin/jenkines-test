@@ -1,0 +1,22 @@
+resource_types:
+- name: pull-request
+  type: docker-image
+  source:
+    repository: teliaoss/github-pr-resource
+resources:
+- name: jenkines-test
+  type: git
+  source:
+    uri: https://github.com/aswin-apton/jenkines-test  #https://github.com/aswin-apton/jenkines-test.git
+    branch: master
+    access_token: ((github-access-token))
+jobs:
+- name: task_run_py
+  plan:
+  - get: jenkines-test
+    trigger: true
+  run:
+    path: /bin/sh
+    args:
+         cd jenkines-test
+         python input.py
