@@ -27,6 +27,6 @@ jobs:
       run:
         path: python
         args:
-        - jenkines-test/input.py 
+        - python jenkines-test/input.py 3
         
         

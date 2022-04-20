@@ -1,4 +1,6 @@
 import sys
-print('enter the number:', sys.argv)
-number = sys.argv[1]
-print('number is:' , number)
+
+print('Enter the number', sys.argv)
+number = int(sys.argv[1])
+
+print('number Entered was:' , number)
