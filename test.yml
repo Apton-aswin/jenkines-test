@@ -1,18 +1,23 @@
 ---
-platform: linux
-
-image_resource:
-  type: registry-image
+resources:
+- name: booklit
+  type: git
   source:
-    repository: golang
-    tag: 1
+    uri: https://github.com/concourse/booklit
+    branch: master
 
-inputs:
-- name: jenkines-test
+jobs:
+- name: unit
+  plan:
+  - get: booklit
+    trigger: true
+  - task: run-unit
+    file: booklit/ci/test.yml
 
-params:
-  COVERALLS_TOKEN:
-  GIT_BRANCH: master
-
-run:
-  path: jenkines-test/ci/test
+- name: build
+  plan:
+  - get: booklit
+    passed: [unit]
+    trigger: true
+  - task: run-build
+    file: booklit/ci/build.yml
