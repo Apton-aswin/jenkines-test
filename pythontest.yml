@@ -21,12 +21,15 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: python, tag: "3.8.13-buster"}
+        source: {repository: python, tag: "3.8.13-buster" }
       inputs:
         - name: jenkines-test
       run:
-        path: python
+        path: bash
         args:
-        - python jenkines-test/input.py 3
-        
+        - "-c"
+        - |
+          set -e
+          python jenkines-test/input.py 10
+         
         

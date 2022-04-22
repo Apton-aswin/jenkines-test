@@ -1,0 +1,39 @@
+---
+resource_types:
+- name: ssh
+  type: docker-image
+  source:
+    repository: quay.io/henry40408/concourse-ssh-resource
+
+resources:
+- name: server
+  type: ssh
+  source:
+    host: 34.142.189.176
+    user: root
+    private_key: ((ssh-private-key))
+    port: 22
+
+jobs:
+- name: echo
+  plan:
+  # Basic usage
+  - put: server
+    params:
+      interpreter: /usr/bin/bash
+      script: |
+        echo hello
+
+# jobs:
+# - name: echo
+#   plan:
+#   - put: server
+#     params:
+#       interpreter: /bin/sh
+#       script: |
+#         echo hii
+        
+  
+
+
+         
