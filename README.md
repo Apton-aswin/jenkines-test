@@ -1,2 +1,2 @@
 # jenkines-test
-This repository is for jenkines test opertions
+This repository is for jenkins workflow
